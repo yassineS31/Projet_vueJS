@@ -1,37 +1,83 @@
 
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-	    <div class="container-fluid">
-	     <router-link to="/home"><a class="navbar-brand" href="#">Accueil</a></router-link>
-	      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="navbar-toggler-icon"></span>
-	      </button>
-	    
-	      <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+	<div class="container-fluid">
+	    <router-link to="/home"><a class="navbar-brand" href="#">Accueil</a></router-link>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+	    	<span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class=" collapse navbar-collapse" id="navbarNavDropdown">
 	        <ul class="navbar-nav ms-auto ">
-	          <li class="nav-item">
-	            <router-link to="/home"><a class="nav-link mx-2 active" aria-current="page" href="#">Accueil</a></router-link>
-	          </li>
-	          <li class="nav-item">
-	            <router-link to="/lessons-list"><a class="nav-link mx-2" href="#">Leçons</a></router-link>
-	          </li>
-	          <li class="nav-item">
-	            <a class="nav-link mx-2" href="#">Exercices</a>
-	          </li>
-	          <li class="nav-item dropdown">
-	            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-	              Company
-	            </a>
-	            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	              <li><a class="dropdown-item" href="#">Blog</a></li>
-	              <li><a class="dropdown-item" href="#">About Us</a></li>
-	              <li><a class="dropdown-item" href="#">Contact us</a></li>
-	            </ul>
-	          </li>
+	          	<li class="nav-item">
+	            	<router-link to="/home"><a class="nav-link mx-2 active" aria-current="page" href="#">Accueil</a></router-link>
+	          	</li>
+	          	<li class="nav-item dropdown">
+	            	<a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	              	Leçons
+	            	</a>
+	            	<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<li><a class="dropdown-item" href="#">Liste des leçons</a></li>
+					<li><a class="dropdown-item" href="#">Présentation</a></li>
+					<li><a class="dropdown-item" href="#">introduction Vue</a></li>
+					<li><a class="dropdown-item" href="#">Setup Vue</a></li>
+					<li><a class="dropdown-item" href="#">Installer et utiliser des librairies</a></li>
+					<li><a class="dropdown-item" href="#">Text interpolation</a></li>
+					<li><a class="dropdown-item" href="#">Methods & Functions</a></li>
+					<li><a class="dropdown-item" href="#">Directive V-HTML (inline Templating)</a></li>
+					<li><a class="dropdown-item" href="#">Système de composant</a></li>
+					<li><a class="dropdown-item" href="#">Conditional Rendering (v-if)</a></li>
+					<li><a class="dropdown-item" href="#">Création des composants</a></li>
+					<li><a class="dropdown-item" href="#">Comp Comm PROPS</a></li>
+					<li><a class="dropdown-item" href="#">Comp Comm Emits</a></li>
+					<li><a class="dropdown-item" href="#">Librairies</a></li>
+					<li><a class="dropdown-item" href="#">Counter (Pinia)</a></li>
+					<li><a class="dropdown-item" href="#">Axios & Pinia</a></li>
+					<li><a class="dropdown-item" href="#">Text Editor (Markdown & Pinia)</a></li>
+					<li><a class="dropdown-item" href="#">Cypress (testing Framework)</a></li>
+					</ul>
+				</li>
+	          	<li class="nav-item dropdown">
+	            	<a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	              	Exercices
+	            	</a>
+	            	<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<li><a class="dropdown-item" href="#">Liste exercices</a></li>
+					<li><router-link to="/EXO_TextInterpolation"><a class="dropdown-item" href="#">Test interpolation</a></router-link></li>
+					<li><router-link to="/Lesson_inline-templating"><a class="dropdown-item" href="#">inline Templating(v-html)</a></router-link></li>
+					<li><router-link to="/AttributeBinding"><a class="dropdown-item" href="#">Attribute Binding (v-bind)</a></router-link></li>
+					<li><a class="dropdown-item" href="#">Event Binding (v-on)</a></li>
+					<li><a class="dropdown-item" href="#">Two Way Data Binding (v-model)</a></li>
+					<li><a class="dropdown-item" href="#">Computed Properties</a></li>
+					<li><a class="dropdown-item" href="#">Watchers</a></li>
+					<li><a class="dropdown-item" href="#">Dynamic Styling</a></li>
+					<li><a class="dropdown-item" href="#">Conditional Rendering (v-if)</a></li>
+					<li><a class="dropdown-item" href="#">List Rendering (v-for)</a></li>
+					<li><a class="dropdown-item" href="#">Props</a></li>
+					<li><a class="dropdown-item" href="#">Props ultra Opti (v-bind des props + v-for)+ Emit</a></li>
+					<li><a class="dropdown-item" href="#">API Fetch</a></li>
+					<li><a class="dropdown-item" href="#">Something else here</a></li>
+					</ul>
+				</li>
+	          	<li class="nav-item dropdown">
+	            	<a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	              	TP
+	            	</a>
+	            	<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	              		<li><a class="dropdown-item" href="#">Liste des TP</a></li>
+	              		<li><a class="dropdown-item" href="#">TP-DataBinding</a></li>
+	              		<li><a class="dropdown-item" href="#">TP-EventBinding</a></li>
+	              		<li><a class="dropdown-item" href="#">TP-Reactivity</a></li>
+	              		<li><a class="dropdown-item" href="#">TP-Dynamic Styling</a></li>
+	              		<li><a class="dropdown-item" href="#">TP-Conditional & List Rendering</a></li>
+	              		<li><a class="dropdown-item" href="#">TP-Pokemon Game</a></li>
+	              		<li><a class="dropdown-item" href="#">TP-Component Communication</a></li>
+	              		<li><a class="dropdown-item" href="#">Something else here</a></li>
+	            	</ul>
+	          	</li>
 	        </ul>
-	      </div>
 	    </div>
-	    </nav>
+	</div>
+</nav>
 </template>
 
 <script setup lang='js'>
