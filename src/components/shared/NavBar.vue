@@ -42,9 +42,17 @@
 	            	</a>
 	            	<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					<li><a class="dropdown-item" href="#">Liste exercices</a></li>
-					<li><router-link to="/EXO_TextInterpolation"><a class="dropdown-item" href="#">Test interpolation</a></router-link></li>
-					<li><router-link to="/Lesson_inline-templating"><a class="dropdown-item" href="#">inline Templating(v-html)</a></router-link></li>
-					<li><router-link to="/AttributeBinding"><a class="dropdown-item" href="#">Attribute Binding (v-bind)</a></router-link></li>
+					<li>
+						<router-link class="dropdown-item" to="/EXO_TextInterpolation">Test interpolation</router-link>
+					</li>
+					<li>
+						<router-link class="dropdown-item" to="/Lesson_inline-templating">inline Templating(v-html)
+
+						</router-link>
+					</li>
+					<li>
+						<router-link class="dropdown-item" to="/AttributeBinding">Attribute Binding (v-bind)</router-link>
+					</li>
 					<li><a class="dropdown-item" href="#">Event Binding (v-on)</a></li>
 					<li><a class="dropdown-item" href="#">Two Way Data Binding (v-model)</a></li>
 					<li><a class="dropdown-item" href="#">Computed Properties</a></li>
@@ -63,8 +71,10 @@
 	              	TP
 	            	</a>
 	            	<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	              		<li><a class="dropdown-item" href="#">Liste des TP</a></li>
-	              		<li><a class="dropdown-item" href="#">TP-DataBinding</a></li>
+	              		<li>Liste des TP</li>
+	              		<li>
+							<router-link class="dropdown-item" to="/tpdatabinding">TP-Databinding</router-link>
+						</li>
 	              		<li><a class="dropdown-item" href="#">TP-EventBinding</a></li>
 	              		<li><a class="dropdown-item" href="#">TP-Reactivity</a></li>
 	              		<li><a class="dropdown-item" href="#">TP-Dynamic Styling</a></li>

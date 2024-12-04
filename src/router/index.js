@@ -41,12 +41,23 @@ const router = createRouter({
             component:()=>import('../views/lessons/AttributeBinding.vue')
         },
 
+        // EXO
+        {
+            path:'/eventbinding',
+            name:'exo_evenBinding',
+            component:()=>import('../views/exos/EventBinding.vue')
+        },
         // TP 
         {
-            path:'/TP_DataBinding',
+            path:'/tpdatabinding',
             name:'TP_DataBinding',
             component:()=>import('../views/tp/TP_DataBinding.vue')
         },
+        {
+            path:'/tpeventbinding',
+            name:'TP_EventBinding',
+            component:()=>import('../views/tp/TP_EventBinding.vue')
+        }
     ]
 });
 
