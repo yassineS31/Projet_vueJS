@@ -22,7 +22,7 @@ const ageInitial =45
 // Affichage de l'age + string 'ans'
 const Printage = ref(`${ageInitial} ans`)
 // Age +10 
-const age10 = ref(`${ageInitial+10} ans`)
+const age10 = ref(` age +10 : ${ageInitial+10} ans`)
 // fonction qui génére le numéro fétiche :
 function random(){
   return Math.random();
