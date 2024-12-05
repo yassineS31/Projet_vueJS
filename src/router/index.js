@@ -82,6 +82,11 @@ const router = createRouter({
             path:'/tpreactivite',
             name:'TP_reactivite',
             component:()=>import('../views/tp/TP_reactivite.vue')
+        },
+        {
+            path:'/tp_dynamicstylingmode',
+            name:'TP_dynamicstylingmode',
+            component:()=>import('../views/tp/TP_dynamicstylingmode.vue')
         }
     ]
 });
