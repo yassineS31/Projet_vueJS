@@ -47,6 +47,26 @@ const router = createRouter({
             name:'exo_evenBinding',
             component:()=>import('../views/exos/EventBinding.vue')
         },
+        {
+            path:'/twowaybindingevent',
+            name:'exo_twowaybindingevent',
+            component:()=>import('../views/exos/twowayBindingEvent.vue')
+        },
+        {
+            path:'/exo_bug',
+            name:'exo_bug',
+            component:()=>import('../views/exos/exo_bug.vue')
+        },
+        {
+            path:'/exo_dynamicstyling',
+            name:'exo_dynamic_Styling',
+            component:()=>import('../views/exos/exo_DynamicStyling.vue')
+        },
+        {
+            path:'/exo_dynamicstylingclass',
+            name:'exo_dynamic_Styling_Class',
+            component:()=>import('../views/exos/exo_DynamicStylingClass1.vue')
+        },
         // TP 
         {
             path:'/tpdatabinding',
@@ -57,6 +77,11 @@ const router = createRouter({
             path:'/tpeventbinding',
             name:'TP_EventBinding',
             component:()=>import('../views/tp/TP_EventBinding.vue')
+        },
+        {
+            path:'/tpreactivite',
+            name:'TP_reactivite',
+            component:()=>import('../views/tp/TP_reactivite.vue')
         }
     ]
 });
