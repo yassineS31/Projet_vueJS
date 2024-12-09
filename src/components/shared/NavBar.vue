@@ -75,14 +75,14 @@
 	              		<li>
 							<router-link class="dropdown-item" to="/tpdatabinding">TP-Databinding</router-link>
 						</li>
-	              		<li>
-							<router-link class="dropdown-item" to="/tpeventbinding">TP-EventBinding</router-link>
 
-							</li>
 	              		<li><a class="dropdown-item" href="#">TP-Reactivity</a></li>
 	              		<li><a class="dropdown-item" href="#">TP-Dynamic Styling</a></li>
-	              		<li><a class="dropdown-item" href="#">TP-Conditional & List Rendering</a></li>
-	              		<li><a class="dropdown-item" href="#">TP-Pokemon Game</a></li>
+	              		<li>
+							<router-link class="dropdown-item" to="/tp_conditionalrendring">TP-Conditional & List Rendering</router-link>
+
+							</li>
+						<li><a class="dropdown-item" href="#">TP-Pokemon Game</a></li>
 	              		<li><a class="dropdown-item" href="#">TP-Component Communication</a></li>
 	              		<li><a class="dropdown-item" href="#">Something else here</a></li>
 	            	</ul>

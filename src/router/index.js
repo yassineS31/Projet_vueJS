@@ -40,6 +40,11 @@ const router = createRouter({
             name:'AttributeBinding',
             component:()=>import('../views/lessons/AttributeBinding.vue')
         },
+        {
+            path:'/LessonListRendering',
+            name:'lesson List rendering',
+            component:()=>import('../views/lessons/lessonlistrendering.vue')
+        },
 
         // EXO
         {
@@ -67,6 +72,21 @@ const router = createRouter({
             name:'exo_dynamic_Styling_Class',
             component:()=>import('../views/exos/exo_DynamicStylingClass1.vue')
         },
+        {
+            path:'/exo_listRendering',
+            name:'exo_listRendering',
+            component:()=>import('../views/exos/exo_listRendering.vue')
+        },
+        {
+            path:'/exo_parentpropsview',
+            name:'exo_parent props view',
+            component:()=>import('../views/exos/exo_parentPropsView.vue')
+        },
+        {
+            path:'/exo_onefriend',
+            name:'exo_enfant props view',
+            component:()=>import('../views/exos/exo_oneFriend.vue')
+        },
         // TP 
         {
             path:'/tpdatabinding',
@@ -87,6 +107,11 @@ const router = createRouter({
             path:'/tp_dynamicstylingmode',
             name:'TP_dynamicstylingmode',
             component:()=>import('../views/tp/TP_dynamicstylingmode.vue')
+        },
+        {
+            path:'/tp_conditionalrendring',
+            name:'TP_conditionalRendring',
+            component:()=>import('../views/tp/TP_conditionalRendering_listrendering.vue')
         }
     ]
 });
