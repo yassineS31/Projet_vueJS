@@ -20,8 +20,10 @@
 
 
 <script setup lang='js'>
-const reactionStatus= ()=>{
-  alert('H4CK3D')
+function reactionStatus(leIdDansUnAmi){
+  let trouver =lesAmis.find(leIdDansUnAmi)
+  console.log(trouver.name)
+  // alert('H4CK3D')
 }
 const lesAmis = ref([
     {

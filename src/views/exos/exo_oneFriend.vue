@@ -50,7 +50,7 @@ const afficherDetails = () => {
 
 const afficherPremium = () => {
   premiumData.value = !premiumData.value;
-  emit('mon-event-premium');
+  emit('mon-event-premium',props.id);
 };
 
 
