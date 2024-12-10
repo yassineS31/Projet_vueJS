@@ -43,7 +43,7 @@ const router = createRouter({
         {
             path:'/LessonListRendering',
             name:'lesson List rendering',
-            component:()=>import('../views/lessons/lessonlistrendering.vue')
+            component:()=>import('../views/lessons/LessonListRendering.vue')
         },
 
         // EXO
