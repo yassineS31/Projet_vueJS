@@ -1,13 +1,9 @@
 <template>
-  <div class="container p-3 my-2 bg-primary-subtle">
+  <div class="container my-1 p-3">
       <ul class="list-group">
-          <h2 class="list-group-item">{{ unAmiName }} {{ prenium ==="abc" ? statusprenium: statusnonprenium}}</h2>
-          <p>
-            {{afficherPremiumTest()}}
-          </p>
-          <button @click="afficherDetails" class="btn btn-outline-dark">
-              {{ !detailsVisibles ? 'Voir Détails' : 'Masquer Détails' }}
-          </button>
+          <h2 class="list-group-item">{{ unAmiName }} {{ premiumData ? 'Ami premium' : 'Ami nul' }}</h2>
+          <button @click="afficherPremium" class="btn btn-danger mb-1">Premium ?</button>
+          <button @click="afficherDetails" class="btn btn-outline-dark">{{ detailsVisibles ? 'Masquer' : 'Afficher'}}</button>
           <ul v-if="detailsVisibles" class="list-group">
               <li class="list-group-item">{{ unAmiPhone }}</li>
               <li class="list-group-item">{{ unAmiMail }}</li>
@@ -17,41 +13,42 @@
 </template>
 
 <script setup lang='js'>
-import { ref,defineProps } from 'vue';
-const statusprenium="Amis prenium"
-const statusnonprenium="Amis null !"
+import { ref, defineProps } from 'vue';
+
 const props = defineProps({
-  unAmiName : {
-    type:String,
-    Required: true,
+  unAmiName: {
+      type: String,
+      required: true
   },
-  unAmiPhone:{
-    type:String,
-    Required: true,
+  unAmiPhone: {
+      type: String,
+      required: true
   },
-  unAmiMail:{
-    type:String,
-    Required: true,
+  unAmiMail: {
+      type: String,
+      required: true
   },
   prenium:{
-    type:String,
+    type:Boolean,
     Required: false,
-    default:0,
-    validator:validatorfunction(value)
+    default:false,
+      // validator: function(value){return value==='abc' || value==='xyz'}
+  },
+  id:{
+    type:String,
+    Required:true,
   }
+
 });
+
 const detailsVisibles = ref(false);
+const premiumData = ref(props.premium);
 
-// method : 
-
-function afficherPremiumTest(){
-  props.prenium==="abc" ? props.prenium="xyz":props.prenium="abc" 
-}
-function validatorfunction(value){
-   return value==="abc"   ;
-}
-
-function afficherDetails() {
+const afficherDetails = () => {
   detailsVisibles.value = !detailsVisibles.value;
-}
+};
+
+const afficherPremium = () => {
+  premiumData.value = !premiumData.value;
+};
 </script>

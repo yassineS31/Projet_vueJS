@@ -87,6 +87,11 @@ const router = createRouter({
             name:'exo_enfant props view',
             component:()=>import('../views/exos/exo_oneFriend.vue')
         },
+        {
+            path:'/exo_apifetch',
+            name:'exo_api fetch',
+            component:()=>import('../views/exos/exo_APIFETCH.vue')
+        },
         // TP 
         {
             path:'/tpdatabinding',

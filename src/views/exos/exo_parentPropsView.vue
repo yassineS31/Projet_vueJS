@@ -1,15 +1,41 @@
 <template>
   <div >
     <h1 class="text-center">Ici c'est le composant parent ExoPropsView</h1>
-    <PropsOneFriendComp unAmiName="Dr.Azerty" unAmiPhone="098765234" unAmiMail="a@a.aa" prenium="abc"></PropsOneFriendComp>
-    <PropsOneFriendComp unAmiName="Cortex22" unAmiPhone="30303003" unAmiMail="cortex@cortex.cortex" prenium="xyz"></PropsOneFriendComp>
-    <PropsOneFriendComp unAmiName="Dr.Qwerty" unAmiPhone="098765234" unAmiMail="b@b.bb" prenium="abc"></PropsOneFriendComp>
-    <PropsOneFriendComp unAmiName="Dr.aaaaa" unAmiPhone="5555555" unAmiMail="lol@lol.com" prenium="xyz"></PropsOneFriendComp>
+    <PropsOneFriendComp 
+    v-for ="unAmi in lesAmis"
+    :key="unAmi.id"
+    :id="unAmi.id"
+    :unAmiName="unAmi.name"
+    :unAmiPhone="unAmi.phone"
+    :unAmiMail="unAmi.email"
+    :unAmiPrenium="unAmi.prenium"
+    ></PropsOneFriendComp>
+    <!--<PropsOneFriendComp unAmiName="Cortex22" unAmiPhone="30303003" unAmiMail="cortex@cortex.cortex" prenium=""></PropsOneFriendComp>
+    <PropsOneFriendComp unAmiName="Dr.Qwerty" unAmiPhone="098765234" unAmiMail="b@b.bb" prenium=""></PropsOneFriendComp>
+    <PropsOneFriendComp unAmiName="Dr.aaaaa" unAmiPhone="5555555" unAmiMail="lol@lol.com" prenium=""></PropsOneFriendComp> -->
   </div>
 </template>
 
 
 <script setup lang='js'>
-import { defineAsyncComponent } from 'vue'
+
+const lesAmis = ref([
+    {
+        id: 'lasticot',
+        name: 'COCO L ASTICOT',
+        phone: '01234 5678 991',
+        email: 'coco@lasticot.com',
+        premium: true
+    },
+    {
+        id: 'kimonoSurUnFrigo',
+        name: "Steven Seagal",
+        phone: '+338765477',
+        email: 'steven@seagal.com',
+        premium: true
+    }
+]);
+
+import { defineAsyncComponent,ref } from 'vue'
 const PropsOneFriendComp = defineAsyncComponent(() => import('./exo_oneFriend.vue'))
 </script>
