@@ -64,7 +64,10 @@
 					<li><a class="dropdown-item" href="#">Props ultra Opti (v-bind des props + v-for)+ Emit</a></li>
 					<li><a class="dropdown-item" href="#">API Fetch</a></li>
 					<li><a class="dropdown-item" href="#">Something else here</a></li>
-					</ul>
+					<li>
+						<router-link class="dropdown-item" to="/lesson-router">lesson router</router-link>
+					</li>
+				</ul>
 				</li>
 	          	<li class="nav-item dropdown">
 	            	<a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

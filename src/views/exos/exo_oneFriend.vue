@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang='js'>
-import { ref, defineProps } from 'vue';
+import { ref, defineProps, } from 'vue';
 
 const props = defineProps({
   unAmiName: {
@@ -28,7 +28,7 @@ const props = defineProps({
       type: String,
       required: true
   },
-  prenium:{
+  premium:{
     type:Boolean,
     Required: false,
     default:false,
@@ -43,12 +43,15 @@ const props = defineProps({
 
 const detailsVisibles = ref(false);
 const premiumData = ref(props.premium);
-
+const emit = defineEmits(['mon-event-premium']);
 const afficherDetails = () => {
   detailsVisibles.value = !detailsVisibles.value;
 };
 
 const afficherPremium = () => {
   premiumData.value = !premiumData.value;
+  emit('mon-event-premium');
 };
+
+
 </script>

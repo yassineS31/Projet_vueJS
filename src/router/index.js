@@ -46,6 +46,8 @@ const router = createRouter({
             component:()=>import('../views/lessons/LessonListRendering.vue')
         },
 
+
+
         // EXO
         {
             path:'/eventbinding',
@@ -92,6 +94,26 @@ const router = createRouter({
             name:'exo_api fetch',
             component:()=>import('../views/exos/exo_APIFETCH.vue')
         },
+        //{
+        //     path:'/lesson-router',
+        //     name:'lesson router',
+        //     component:()=>import('../views/exos/exo_LessonRouterView.vue')
+        // },
+        {
+            path:"/details/:id/:itemName",
+            name:'details',
+            component:()=>import('../views/exos/DetailsPage.vue'),
+            props:true
+        },
+        {
+            path:'/test-lesson-router',
+            name:'lesson router',
+            component:()=>import('../views/exos/exo_LessonRouterView.vue'),
+
+        },
+        
+
+
         // TP 
         {
             path:'/tpdatabinding',

@@ -2,11 +2,18 @@
   <div>
     <h3>Une simple requête HTTP GET</h3>
     <h4>Les Pokémon:</h4>
+    <p v-for="pokemon in pokeArray"
+    :key="pokemon.name">{{ pokemon.name }}</p>
+    <h5>Méteo Toulouse</h5>
+    <p>Température min : {{ tmin }}°C</p>
+    <p>Température max : {{ tmax }}°C</p>
+    <p>Température actuelle : {{ tcurrent }}°C</p>
+    <p>Condition méteo : {{ condition }}</p>
   </div>
 </template>
 
 <script setup lang='js'>
-import { onMounted, onUpdated, onBeforeUnmount } from 'vue'
+import { onMounted, onUpdated, onBeforeUnmount,ref } from 'vue'
 
 const props = defineProps({
   // v-model
@@ -16,29 +23,43 @@ const props = defineProps({
 });
 
 
+let pokeArray =ref([])
+let meteoArray =ref([])
+let tmax=ref(null)
+let tmin=ref(null)
+let tcurrent=ref(null)
+let condition=ref(null)
 
-function fetchJokes() {
+const fetchPokemon = async() => {
+  fetch("https://pokeapi.co/api/v2/pokemon/")
+    .then(response => response.json())
+    .then(data => {
+      pokeArray.value = data.results;
+    })
+    .catch(error => {
+      console.error("Erreur lors de la récupération des Pokémon :", error);
+    });
+};
+
+const fetchMeteo = async () => {
   try {
-    const response =  fetch('https://jokes-api-by-api-ninja.p.rapidapi.com/v1/jokes');
-    const jokes =  response.json();
+    const response = await fetch("https://prevision-meteo.ch/services/json/toulouse");
+    const data = await response.json();
+    tmax.value = data.fcst_day_0.tmax;
+    tmin.value = data.fcst_day_0.tmin;
+    tcurrent.value = data.current_condition.tmp;
+    condition.value = data.current_condition.condition;
   } catch (error) {
-    console.error(error);
+    console.error("Erreur lors de la récupération de la météo :", error);
   }
-}
+};
 
-function apiPokemon(){
-  fetch('https://pokeapi.co/api/v2/pokemon/')
-}
-
-
-function apiMeteo(){
-fetch(' https://prevision-meteo.ch/services/json/toulouse')
-}
 
 
 onMounted(() => {
-  apiPokemon()
-  apiMeteo()
+  console.log('A ce moment le composant est monté.');
+  fetchMeteo();
+  fetchPokemon();
 });
 
 onUpdated(() => {
@@ -51,4 +72,8 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped lang="css">
+h5,h4 {
+  font-weight: 500;
+  color: rgb(89, 72, 161);
+}
 </style>

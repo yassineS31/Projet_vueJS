@@ -8,17 +8,21 @@
     :unAmiName="unAmi.name"
     :unAmiPhone="unAmi.phone"
     :unAmiMail="unAmi.email"
-    :unAmiPrenium="unAmi.prenium"
+    :unAmiPremium="unAmi.premium"
+    @mon-event-premium="reactionStatus"
     ></PropsOneFriendComp>
-    <!--<PropsOneFriendComp unAmiName="Cortex22" unAmiPhone="30303003" unAmiMail="cortex@cortex.cortex" prenium=""></PropsOneFriendComp>
-    <PropsOneFriendComp unAmiName="Dr.Qwerty" unAmiPhone="098765234" unAmiMail="b@b.bb" prenium=""></PropsOneFriendComp>
-    <PropsOneFriendComp unAmiName="Dr.aaaaa" unAmiPhone="5555555" unAmiMail="lol@lol.com" prenium=""></PropsOneFriendComp> -->
+
+    <!--<PropsOneFriendComp unAmiName="Cortex22" unAmiPhone="30303003" unAmiMail="cortex@cortex.cortex" premium=""></PropsOneFriendComp>
+    <PropsOneFriendComp unAmiName="Dr.Qwerty" unAmiPhone="098765234" unAmiMail="b@b.bb" premium=""></PropsOneFriendComp>
+    <PropsOneFriendComp unAmiName="Dr.aaaaa" unAmiPhone="5555555" unAmiMail="lol@lol.com" premium=""></PropsOneFriendComp> -->
   </div>
 </template>
 
 
 <script setup lang='js'>
-
+const reactionStatus= ()=>{
+  alert('H4CK3D')
+}
 const lesAmis = ref([
     {
         id: 'lasticot',
