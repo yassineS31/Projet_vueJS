@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-
+import {auth} from '../firebase'
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -145,8 +145,32 @@ const router = createRouter({
             path:'/tp_conditionalrendring',
             name:'TP_conditionalRendring',
             component:()=>import('../views/tp/TP_conditionalRendering_listrendering.vue')
-        }
+        },
+        // REGISTER & LOGIN
+        {
+            path: "/register",
+            name: "Register",
+            component: () => import("../views/RegisterPageView.vue")
+        },
+        {
+            path: "/login",
+            name: "Login",
+            component: () => import("../views/LoginPageView.vue")
+        },
     ]
 });
+// Vérification avant chaque navigation
+router.beforeEach((to, from, next) => {
+    const currentUser = auth.currentUser;
 
+    if (to.matched.some((record) => record.meta.requiresAuth)) {
+        if (!currentUser) {
+            next({ name: "Login" }); // Redirection vers la page de connexion si non authentifié
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
+});
 export default router;

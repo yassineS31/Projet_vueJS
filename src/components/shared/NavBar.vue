@@ -3,7 +3,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
 	<div class="container-fluid">
 	    <router-link to="/home"><a class="navbar-brand" href="#">Accueil</a></router-link>
-	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<div class="d-flex flex-row-reverse w-75">
+	    <router-link to="/login"><a class="navbar-brand" href="#">Se connecter</a></router-link>
+	    <router-link to="/register"><a class="navbar-brand" href="#">S'inscrire</a></router-link>
+	    </div>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 	    	<span class="navbar-toggler-icon"></span>
 	    </button>
 	    <div class=" collapse navbar-collapse" id="navbarNavDropdown">
