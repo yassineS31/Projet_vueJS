@@ -111,6 +111,12 @@ const router = createRouter({
             component:()=>import('../views/exos/exo_LessonRouterView.vue'),
 
         },
+        {
+            path:'/newfriend',
+            name:'emot emit part 4',
+            component:()=>import('../views/exos/exo_newFriend.vue'),
+
+        },
         
 
 

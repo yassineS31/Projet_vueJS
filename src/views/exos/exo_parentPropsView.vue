@@ -1,5 +1,8 @@
 <template>
   <div >
+    <newfriend
+    @add-ami="ajouterAmi">
+  </newfriend>
     <h1 class="text-center">Ici c'est le composant parent ExoPropsView</h1>
     <PropsOneFriendComp 
     v-for ="unAmi in lesAmis"
@@ -9,7 +12,8 @@
     :unAmiPhone="unAmi.phone"
     :unAmiMail="unAmi.email"
     :unAmiPremium="unAmi.premium"
-    @mon-event-premium="reactionStatus"
+    @mon-event-premium="reactionStatus(unAmi.id)"
+    @delete-ami="supprimerAmi">
     ></PropsOneFriendComp>
 
     <!--<PropsOneFriendComp unAmiName="Cortex22" unAmiPhone="30303003" unAmiMail="cortex@cortex.cortex" premium=""></PropsOneFriendComp>
@@ -19,12 +23,14 @@
 </template>
 
 
+
 <script setup lang='js'>
-function reactionStatus(leIdDansUnAmi){
-  let trouver =lesAmis.find(leIdDansUnAmi)
-  console.log(trouver.name)
-  // alert('H4CK3D')
-}
+
+import { defineAsyncComponent,ref } from 'vue'
+const PropsOneFriendComp = defineAsyncComponent(() => import('./exo_oneFriend.vue'))
+const newfriend= defineAsyncComponent(() => import ('./exo_newFriend.vue') )
+
+
 const lesAmis = ref([
     {
         id: 'lasticot',
@@ -34,14 +40,41 @@ const lesAmis = ref([
         premium: true
     },
     {
-        id: 'kimonoSurUnFrigo',
-        name: "Steven Seagal",
-        phone: '+338765477',
-        email: 'steven@seagal.com',
+        id: 'lasticot2',
+        name: 'COCO L ASTICOT',
+        phone: '01234 5678 991',
+        email: 'coco@lasticot.com',
         premium: true
     }
+    
 ]);
 
-import { defineAsyncComponent,ref } from 'vue'
-const PropsOneFriendComp = defineAsyncComponent(() => import('./exo_oneFriend.vue'))
+function reactionStatus(leIdDansUnAmi) {
+    // alert(`Top délire : J'arrive à réagir dans le parent 
+    // à l'event "mon-eventpremium" qui est déclenché par le composant ENFANT `);
+    const unAmiIdentified = lesAmis.value.find(unAmiATrouver => unAmiATrouver.id === leIdDansUnAmi);
+    console.log('amiIdentified : ', unAmiIdentified);
+    unAmiIdentified.premium = !unAmiIdentified.premium;
+    console.log('amiIdentified : ', unAmiIdentified);
+}
+
+function ajouterAmi(eventName, eventPhone, eventMail) {
+    const newAmiContact = {
+        id: new Date().toISOString(),
+        name: eventName,
+        phone: eventPhone,
+        email: eventMail,
+        premium: false,
+    };
+    lesAmis.value.push(newAmiContact);
+    console.log(lesAmis.value);
+}
+
+
+function supprimerAmi(id){
+  const index = lesAmis.value.findIndex((ami) => ami.id === id);
+
+  lesAmis.value.splice(index,1)
+  console.log(lesAmis)
+}
 </script>
