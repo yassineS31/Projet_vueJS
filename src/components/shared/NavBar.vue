@@ -71,6 +71,9 @@
 					<li>
 						<router-link class="dropdown-item" to="/lesson-router">lesson router</router-link>
 					</li>
+					<li>
+						<router-link class="dropdown-item" to="/counterpinia">counter pinia </router-link>
+					</li>
 				</ul>
 				</li>
 	          	<li class="nav-item dropdown">

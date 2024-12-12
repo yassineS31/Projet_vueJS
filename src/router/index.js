@@ -157,20 +157,50 @@ const router = createRouter({
             name: "Login",
             component: () => import("../views/LoginPageView.vue")
         },
+        // DashBoard 
+        {
+            path: "/dashboard",
+            name: "Dashboard",
+            component: () => import("../views/DashboardView.vue"),
+            meta: { requiresAuth: true }, // Route protégée
+        },
+        // Charts js 
+        {
+            path: "/chartjs",
+            name: "chart js",
+            component: () => import("../components/charts/chats_Parent.vue"),
+            
+        },
+        // Pinia
+        {
+            path: "/counterpinia",
+            name: "counter pinia",
+            component: () => import("../components/Pinia/CounterPinia.vue"),
+            
+        },
     ]
 });
 // Vérification avant chaque navigation
-router.beforeEach((to, from, next) => {
-    const currentUser = auth.currentUser;
+let isAuthChecked = false;
 
-    if (to.matched.some((record) => record.meta.requiresAuth)) {
-        if (!currentUser) {
-            next({ name: "Login" }); // Redirection vers la page de connexion si non authentifié
-        } else {
-            next();
-        }
-    } else {
-        next();
-    }
+router.beforeEach((to, from, next) => {
+  if (!isAuthChecked) {
+      auth.onAuthStateChanged((user) => {
+          isAuthChecked = true;
+          const currentUser = user;
+
+          if (to.matched.some((record) => record.meta.requiresAuth)) {
+              if (!currentUser) {
+                  next({ name: "Login" });
+              } else {
+                  next();
+              }
+          } else {
+              next();
+          }
+      });
+  } else {
+      next();
+  }
 });
 export default router;

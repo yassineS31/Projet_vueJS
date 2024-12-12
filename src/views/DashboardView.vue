@@ -19,4 +19,4 @@ async function logout() {
   await signOut(auth);
   router.push({ name: "Home" }); // Redirection après déconnexion
 }
-</script>
+</script>²
